@@ -7,6 +7,7 @@ Project nay dung de chay va thu nghiem `self-rag` voi checkpoint local `selfrag_
 - `self-rag/`: ma nguon goc Self-RAG (inference, retrieval, training scripts)
 - `selfrag_llama2_7b/`: checkpoint model local (config, tokenizer, model shards)
 - `self-rag/quick_test.py`: script test suy luan nhanh tren may local
+- `self-rag/chat_ui.py`: UI chatbot kieu ChatGPT (Streamlit)
 
 ## Tai lieu tham khao
 
@@ -33,6 +34,26 @@ py -3.10 quick_test.py
 ```
 
 Neu thay dong `Generating...`, script dang sinh token (co the mat nhieu thoi gian tren CPU/offload).
+
+## Huong dan chay UI chatbot (Streamlit)
+
+Tu thu muc `self-rag`:
+
+```powershell
+py -3.10 -m pip install --upgrade pip
+py -3.10 -m pip install streamlit transformers torch sentencepiece accelerate protobuf tiktoken
+py -3.10 -m streamlit run chat_ui.py
+```
+
+UI se mo tren browser local (thuong la `http://localhost:8501`).
+
+### Tinh nang UI hien co
+
+- Giao dien chat kieu ChatGPT.
+- Chon cau hoi goi y hoac nhap cau hoi tu do.
+- Stream live "Reasoning / generation trace" theo tung buoc.
+- Co loading status + spinner trong luc model dang generate.
+- Sau khi xong se hien `Reasoning trace` (mo/dong duoc) va `Response` cuoi.
 
 ## Chay theo pipeline Self-RAG trong paper
 
